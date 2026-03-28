@@ -17,6 +17,9 @@
 | [Azure DevOps](./azure-devops-cheatsheet.md) | Pipelines, Repos, Boards, Artifacts, Variable Groups, Environments, Agents |
 | [Linux & Bash](./linux-cheatsheet.md) | Files, permissions, users, processes, systemd, cron, text processing, scripting |
 | [Networking](./networking-cheatsheet.md) | DNS, curl, TLS/SSL, SSH, tcpdump, firewalls, Nginx, WireGuard, performance |
+| [Ansible](./ansible-cheatsheet.md) | Inventory, ad-hoc commands, playbooks, roles, vault, modules, galaxy |
+| [Helm](./helm-cheatsheet.md) | Repos, install/upgrade/rollback, values, chart development, Helmfile, OCI |
+| [Terraform](./terraform-cheatsheet.md) | Init/plan/apply, state, workspaces, variables, modules, loops, import |
 
 ---
 
@@ -93,6 +96,34 @@
 - WireGuard VPN, `iperf3`, `nethogs`, TCP tuning
 - **7 scenarios** — debug 502, diagnose SSL issues, find bandwidth hogs, block brute-force SSH
 
+### Ansible
+- Inventory management — static INI/YAML, dynamic (AWS EC2, GCP)
+- Ad-hoc commands — ping, shell, copy, package management
+- Playbooks — tasks, handlers, variables, conditionals, loops, tags
+- Roles — structure, dependencies, defaults, `ansible-galaxy` scaffolding
+- Ansible Vault — encrypting secrets, inline vars, vault IDs
+- Essential modules — `apt`, `copy`, `template`, `service`, `user`, `git`, `docker_container`
+- `ansible.cfg` tuning, callback plugins, mitogen accelerator
+
+### Helm
+- Repository management — add, update, search Hub vs repos
+- Install, upgrade, rollback, uninstall releases
+- Values overrides — `--set`, `-f values.yaml`, value precedence
+- Chart authoring — `helm create`, templates, helpers, `_helpers.tpl`, conditionals, loops
+- Chart testing with `helm test` and `ct` (chart-testing)
+- Helmfile for multi-chart deployments, OCI registries
+- Secrets management with helm-secrets / Vault integration
+
+### Terraform
+- Core workflow — `init`, `plan`, `apply`, `destroy`
+- State management — `state list/show/mv/rm`, remote backends (S3, GCS, Azure)
+- Workspaces for environment separation
+- Variables, locals, outputs, data sources
+- Module creation and consumption (registry + local)
+- `count`, `for_each`, dynamic blocks, conditionals
+- `terraform import`, `terraform moved` blocks, `terraform graph`
+- Terraform Cloud/Enterprise remote runs and policy enforcement
+
 ---
 
 ## Quick Picks
@@ -113,6 +144,12 @@
 
 **SSL cert expired?** → [Networking: TLS/SSL](./networking-cheatsheet.md#tls--ssl)
 
+**Automating server config?** → [Ansible: Playbooks](./ansible-cheatsheet.md#playbooks) · [Roles](./ansible-cheatsheet.md#roles)
+
+**Packaging a Kubernetes app?** → [Helm: Chart Development](./helm-cheatsheet.md#chart-development)
+
+**Provisioning infrastructure as code?** → [Terraform: Core Workflow](./terraform-cheatsheet.md#core-workflow) · [Modules](./terraform-cheatsheet.md#modules)
+
 ---
 
 ## Structure
@@ -128,8 +165,56 @@ devops-cheatsheet/
 ├── azure-cheatsheet.md
 ├── azure-devops-cheatsheet.md
 ├── linux-cheatsheet.md
-└── networking-cheatsheet.md
+├── networking-cheatsheet.md
+├── ansible-cheatsheet.md
+├── helm-cheatsheet.md
+├── terraform-cheatsheet.md
+├── git/
+│   └── README.md          ← Detailed command explanations
+├── docker/
+│   └── README.md
+├── kubernetes/
+│   └── README.md
+├── aws/
+│   └── README.md
+├── gcloud/
+│   └── README.md
+├── azure/
+│   └── README.md
+├── azure-devops/
+│   └── README.md
+├── linux/
+│   └── README.md
+├── networking/
+│   └── README.md
+├── ansible/
+│   └── README.md
+├── helm/
+│   └── README.md
+└── terraform/
+    └── README.md
 ```
+
+---
+
+## Detailed Command Explanations
+
+Each tool folder contains a deep-dive `README.md` — every command explained with its purpose, key flags, and a real usage example:
+
+| Tool | Detailed Reference |
+|---|---|
+| Git | [git/README.md](./git/README.md) |
+| Docker | [docker/README.md](./docker/README.md) |
+| Kubernetes | [kubernetes/README.md](./kubernetes/README.md) |
+| AWS CLI | [aws/README.md](./aws/README.md) |
+| Google Cloud | [gcloud/README.md](./gcloud/README.md) |
+| Azure CLI | [azure/README.md](./azure/README.md) |
+| Azure DevOps | [azure-devops/README.md](./azure-devops/README.md) |
+| Linux & Bash | [linux/README.md](./linux/README.md) |
+| Networking | [networking/README.md](./networking/README.md) |
+| Ansible | [ansible/README.md](./ansible/README.md) |
+| Helm | [helm/README.md](./helm/README.md) |
+| Terraform | [terraform/README.md](./terraform/README.md) |
 
 ---
 
